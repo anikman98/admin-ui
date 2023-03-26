@@ -1,29 +1,51 @@
 
-const UserTable = ({users, handleDelete, handleEdit}) => {
-  
+const UserTable = ({
+  users,
+  handleDelete,
+  handleEdit,
+  handleCheckbox,
+  handleSelectAll,
+  selectedUsers,
+}) => {
   return (
     <div className="user-table">
       {users ? (
         <table>
           <thead>
             <tr>
-                <th>Selector</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Action</th>
+              <th>
+                <input
+                  type="checkbox"
+                  name="select-all"
+                  onChange={(e) => handleSelectAll(e.target.checked)}
+                />
+              </th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {users.map((user) => {
               return (
                 <tr key={user.id}>
-                  <td>{user.id}</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      name={user.id}
+                      checked={selectedUsers.includes(user.id)}
+                      onChange={() => handleCheckbox(user.id)}
+                    />
+                  </td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>{user.role}</td>
                   <td>
-                    <button className="edit" onClick={() => handleEdit(user.id)}>
+                    <button
+                      className="edit"
+                      onClick={() => handleEdit(user.id)}
+                    >
                       <svg className="svg-icon" viewBox="0 0 20 20">
                         <path
                           fill="none"
@@ -31,7 +53,10 @@ const UserTable = ({users, handleDelete, handleEdit}) => {
                         ></path>
                       </svg>
                     </button>
-                    <button className="delete" onClick={() => handleDelete(user.id)}>
+                    <button
+                      className="delete"
+                      onClick={() => handleDelete(user.id)}
+                    >
                       <svg className="svg-icon" viewBox="0 0 20 20">
                         <path
                           fill="none"

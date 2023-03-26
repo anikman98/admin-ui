@@ -1,9 +1,18 @@
-/* -----
-SVG Icons - svgicons.sparkk.fr
------ */
-
 *{
   text-align: center;
+}
+
+.app{
+  width: 95%;
+  height: 100%;
+  margin: auto;
+  padding: 20px 0px;
+
+}
+
+.search{
+  width: 100%;
+  
 }
 
 button{
@@ -21,11 +30,21 @@ ul{
 }
 
 li{
-  background-color: aquamarine;
+  background-color: white;
+  border: 1px solid grey;
   height: 40px;
   width: 40px;
   border-radius: 50%;
   display: flex;
+}
+
+.active{
+  background-color: black;
+  border: 1px solid black;
+}
+
+.active>a{
+  color: white;
 }
 
 a{
@@ -37,6 +56,17 @@ a{
   width: 100%;
   /* display: inline; */
 }
+
+
+table{
+  width:100%;
+  border: 1px solid grey;
+}
+
+tr{
+  border: 1px solid grey;
+}
+
 
 .svg-icon {
   width: 1em;
