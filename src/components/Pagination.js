@@ -3,9 +3,9 @@ import { useContext } from 'react';
 import { PaginationContext } from '../context/PaginationContext';
 
 
-const Pagination = ({totalPosts, postsPerPage}) => {
-    const pageNumbers = [];
-    const totalPage = Math.ceil(totalPosts / postsPerPage);
+const Pagination = ({totalUsers, postsPerPage}) => {
+  const pageNumbers = [];
+  const totalPage = Math.ceil(totalUsers / postsPerPage);
   const { currentPage, setCurrentPage } = useContext(PaginationContext);
 
   const handleClick = (number) => {

@@ -12,7 +12,27 @@
 
 .search{
   width: 100%;
-  
+
+}
+
+.delete-button{
+  background-color: rgb(255, 78, 78);
+  border: 1px solid red;
+  padding: 15px 50px;
+  border-radius: 50px;
+  color: white;
+}
+
+.temp-button{
+  visibility: hidden;
+  padding: 10px 20px;
+
+}
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 button{
