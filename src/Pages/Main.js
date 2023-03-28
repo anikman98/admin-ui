@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useContext } from "react";
 import UserTable from "../components/UserTable";
 import SearchBar from "../components/SearchBar";
 import Pagination from "../components/Pagination";
@@ -12,12 +12,11 @@ const Main = () => {
   const {
     userData,
     setUserData,
-    usersPerPage,
     handleDeleteAll,
     fetchCurrentUsers,
     currentUserCount
   } = useContext(UserContext);
-  const { currentPage, setCurrentPage } = useContext(PaginationContext);
+  const { currentPage } = useContext(PaginationContext);
   const { searchQuery } = useContext(SearchContext);
   /*
     Single data from API
