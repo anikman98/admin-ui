@@ -1,10 +1,11 @@
-import React from 'react'
-import { useEffect, useContext } from "react";
+import React from "react";
+import { useEffect, useContext, useState } from "react";
 import UserTable from "../components/UserTable";
 import SearchBar from "../components/SearchBar";
 import Pagination from "../components/Pagination";
-import { PaginationContext } from '../context/PaginationContext';
-import { UserContext } from '../context/UserContext';
+import { PaginationContext } from "../context/PaginationContext";
+import { UserContext } from "../context/UserContext";
+import { SearchContext } from "../context/SearchContext";
 
 const Main = () => {
   //state to hold the data
@@ -14,9 +15,10 @@ const Main = () => {
     usersPerPage,
     handleDeleteAll,
     fetchCurrentUsers,
+    currentUserCount
   } = useContext(UserContext);
-  const {currentPage, setCurrentPage} = useContext(PaginationContext);
-
+  const { currentPage, setCurrentPage } = useContext(PaginationContext);
+  const { searchQuery } = useContext(SearchContext);
   /*
     Single data from API
       email: "aaron@mailinator.com"
@@ -32,18 +34,13 @@ const Main = () => {
       .then((response) => response.json())
       .then((data) => {
         setUserData(data);
-        // console.log(data);
       });
   };
 
-
-
-  useEffect(()=> {
+  useEffect(() => {
     fetchCurrentUsers();
-  },[currentPage, userData]);
+  }, [currentPage, userData, searchQuery]);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
- 
   useEffect(() => {
     //call the api
     fetchData();
@@ -52,21 +49,20 @@ const Main = () => {
   return (
     <div className="app">
       <SearchBar />
-      <UserTable
-      />
+      <UserTable />
       <div className="footer">
         <button className="delete-button" onClick={handleDeleteAll}>
           Delete
         </button>
-        <Pagination
-          postsPerPage={usersPerPage}
-          totalUsers={userData.length}
-          paginate={paginate}
-        />
-        <button className='temp-button'>Tempbtn</button>
+        {currentUserCount > 0 ? (
+          <Pagination />
+        ) : (
+          <></>
+        )}
+        <button className="temp-button">Tempbtn</button>
       </div>
     </div>
   );
-}
+};
 
-export default Main
+export default Main;

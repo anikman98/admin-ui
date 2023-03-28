@@ -4,7 +4,7 @@ import UserRow from "./UserRow";
 
 const UserTable = () => {
 
-  const {currentPageUsers, handleSelectAll} = useContext(UserContext);
+  const { currentPageUsers, handleSelectAll } = useContext(UserContext);
 
 
   return (

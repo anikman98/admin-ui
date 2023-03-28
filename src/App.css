@@ -87,6 +87,18 @@ tr{
   border: 1px solid grey;
 }
 
+.search>input{
+  width: 100%;
+  margin: auto;
+  height: 40px;
+  border-radius: 50px;
+  border: 1px solid grey;
+}
+
+.search{
+  padding: 20px 0px;
+}
+
 
 .svg-icon {
   width: 1em;

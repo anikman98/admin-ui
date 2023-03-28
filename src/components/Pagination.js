@@ -1,12 +1,17 @@
 import '../App.css';
 import { useContext } from 'react';
 import { PaginationContext } from '../context/PaginationContext';
+import { UserContext } from '../context/UserContext';
 
 
-const Pagination = ({totalUsers, postsPerPage}) => {
+const Pagination = () => {
+  const { currentPage, setCurrentPage} =
+  useContext(PaginationContext);
+  const { usersPerPage, currentUserCount } =
+    useContext(UserContext);
+  const totalPage = Math.ceil(currentUserCount / usersPerPage);
+  console.log(totalPage);
   const pageNumbers = [];
-  const totalPage = Math.ceil(totalUsers / postsPerPage);
-  const { currentPage, setCurrentPage } = useContext(PaginationContext);
 
   const handleClick = (number) => {
     setCurrentPage(number)
@@ -25,7 +30,7 @@ const Pagination = ({totalUsers, postsPerPage}) => {
   for(let i=1; i<=totalPage; i++){
     pageNumbers.push(i);
   }
-  
+
   return (
     <nav className="pagination">
       {pageNumbers.length > 0 ? (
