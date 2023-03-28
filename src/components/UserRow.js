@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
+import '../App.css';
 
 const UserRow = ({ user }) => {
   const [userName, setUserName] = useState(user.name);
@@ -33,7 +34,7 @@ const UserRow = ({ user }) => {
   };
 
   return (
-    <tr key={user.id} className="user-row">
+    <tr key={user.id} className={selectedUsers.includes(user.id) ? "user-row selected" : "user-row"}>
       <td>
         <input
           type="checkbox"

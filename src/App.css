@@ -81,10 +81,16 @@ a{
 table{
   width:100%;
   border: 1px solid grey;
+  border-collapse: collapse;
 }
 
 tr{
   border: 1px solid grey;
+  height: 32px;
+}
+
+.selected{
+  background-color: rgb(175, 175, 175);
 }
 
 .search>input{
