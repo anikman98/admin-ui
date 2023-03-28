@@ -30,7 +30,7 @@ const Pagination = () => {
       {pageNumbers.length > 0 ? (
         <ul className="pagination-list">
           <li onClick={() => setCurrentPage(1)}>
-            <a href="!#">
+            <a href="#">
               <svg
                 class="svg-icon"
                 viewBox="0 0 20 20"
@@ -44,7 +44,7 @@ const Pagination = () => {
             </a>
           </li>
           <li onClick={handlePrevClick}>
-            <a href="!#">
+            <a href="#">
               <svg className="svg-icon" viewBox="0 0 20 20">
                 <path
                   fill="none"
@@ -60,7 +60,7 @@ const Pagination = () => {
                 key={number}
                 onClick={() => handleClick(number)}
               >
-                <a href="!#" className="pagination-link">
+                <a href="#" className="pagination-link">
                   {number}
                 </a>
               </li>
@@ -70,14 +70,14 @@ const Pagination = () => {
                 key={number}
                 onClick={() => handleClick(number)}
               >
-                <a href="!#" className="pagination-link">
+                <a href="#" className="pagination-link">
                   {number}
                 </a>
               </li>
             );
           })}
           <li onClick={handleNextClick}>
-            <a href="!#">
+            <a href="#">
               <svg className="svg-icon" viewBox="0 0 20 20">
                 <path
                   fill="none"
@@ -87,7 +87,7 @@ const Pagination = () => {
             </a>
           </li>
           <li onClick={() => setCurrentPage(totalPage)}>
-            <a href="!#">
+            <a href="#">
               <svg class="svg-icon" viewBox="0 0 20 20">
                 <path
                   fill="none"
